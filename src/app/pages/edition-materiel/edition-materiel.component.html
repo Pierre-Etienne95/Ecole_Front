@@ -1,0 +1,33 @@
+<form 
+    [formGroup]="formulaire" 
+    (ngSubmit)="onAjoutMateriel()"
+    style="display: flex; flex-direction:column; justify-content: center; align-items: center">
+    <mat-form-field>
+      <mat-label>Nom du matériel</mat-label>
+      <input matInput formControlName="nom" placeholder="Entrez le nom du matériel">
+      <mat-error>
+        Le nom est obligatoire.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="description" placeholder="Entrez une description">
+      <mat-error>
+        La description est obligatoire.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field >
+      <mat-label>Catégorie</mat-label>
+      <input matInput formControlName="categorie" placeholder="Entrez la catégorie du matériel">
+      <mat-error>
+        La catégorie est obligatoire.
+      </mat-error>
+    </mat-form-field>
+  
+    <button mat-raised-button type="submit" color="primary">
+        Ajoute materiel
+    </button>
+  </form>
+  

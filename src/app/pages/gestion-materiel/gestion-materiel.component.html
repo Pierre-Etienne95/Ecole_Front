@@ -1,0 +1,33 @@
+<div class="container">
+
+  <button mat-raised-button color="primary" routerLink="/edition-materiels">
+    <mat-icon fontIcon="person_add"></mat-icon>
+    Ajouter un materiel
+  </button>
+  
+  <div class="row">
+    @for (materiel of listeMateriel; track $index){
+      <div class="col-12 col-md-6 col-lg-4 mt-4">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>{{materiel.nom}}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src="https://placehold.co/600x400/png">    
+          <mat-card-content>
+            <p>
+              {{materiel.description}}
+            </p>
+            @for (pret of materiel.listePrets; track $index){
+            <p>Materiel emprunter le : {{pret.debut | date:"dd/MM/yyyy"}}</p>
+            <p>Materiel rendue le : {{pret.fin | date:"dd/MM/yyyy"}}</p>
+          }
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" [routerLink]="['/edition-materiel', materiel.id]">Modifier</button>
+            <button mat-raised-button color="warn" (click)="supprimeMateriel(materiel.id)">Supprimer</button>
+          </mat-card-actions>
+      </mat-card>
+      </div>  
+    }
+  </div>
+</div>
